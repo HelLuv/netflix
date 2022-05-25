@@ -1,6 +1,6 @@
 import type {NextPage} from 'next'
 import Head from 'next/head'
-import {Banner, Header} from "../components";
+import {Banner, Header, Row} from "../components";
 import requests from "../utils/requests";
 import {Movie} from "../types";
 
@@ -37,13 +37,15 @@ const Home: NextPage<NextPageProps> = ({
       <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16">
         <Banner netflixOriginals={netflixOriginals}/>
 
-        <section>
-          {/*<Row/>*/}
-          {/*<Row/>*/}
-          {/*<Row/>*/}
-          {/*<Row/>*/}
-          {/*<Row/>*/}
-          {/*<Row/>*/}
+        <section className="md:space-y-24">
+          <Row title="Trending Now" movies={trendingNow}/>
+          <Row title="Top Rated" movies={topRated}/>
+          <Row title="Action Thrillers" movies={actionMovies}/>
+
+          <Row title="Comedies" movies={comedyMovies}/>
+          <Row title="Scary Movies" movies={horrorMovies}/>
+          <Row title="Romance Movies" movies={romanceMovies}/>
+          <Row title="Documentaries" movies={documentaries}/>
         </section>
 
         {/*<Modal/>*/}
