@@ -30,7 +30,7 @@ const Home: NextPage<NextPageProps> = ({
       <Head>
         <title>Netflix</title>
         <meta name="description" content="Netflix web app by Nick Miriad"/>
-        <link rel="icon" href="/favicon.ico"/>
+        <link rel="icon" href="/nficon2016.ico"/>
       </Head>
       <Header/>
 
