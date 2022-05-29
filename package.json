@@ -2,6 +2,7 @@
   "name": "netflix",
   "version": "0.1.0",
   "private": true,
+  "author": "Nick Miriad",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -11,9 +12,11 @@
   "dependencies": {
     "@heroicons/react": "^1.0.6",
     "@tailwindcss/line-clamp": "^0.4.0",
+    "firebase": "^9.8.2",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
+    "react-hook-form": "^7.31.3",
     "react-icons": "^4.3.1",
     "tailwind-scrollbar-hide": "^1.1.7"
   },
