@@ -11,6 +11,7 @@ interface RowProps {
 const Row: React.FC<RowProps> = ({movies, title}) => {
   const [isMoved, setIsMoved] = React.useState(false);
   const rowRef = React.useRef<HTMLDivElement>(null);
+
   const handleClick = (direction: "right" | "left") => {
     setIsMoved(true);
 

@@ -1,8 +1,12 @@
-import type {NextPage} from 'next'
-import Head from 'next/head'
-import {Banner, Header, Row} from "../components";
+import type {NextPage} from 'next';
+import Head from 'next/head';
+import {useRecoilValue} from "recoil";
+
+import {Banner, Header, Modal, Row} from "../components";
 import requests from "../utils/requests";
 import {Movie} from "../types";
+import useAuth from "../hooks/useAuth";
+import {modalState, movieState} from "../atoms/modalAtom";
 
 interface NextPageProps {
   netflixOriginals: Movie[];
@@ -25,8 +29,18 @@ const Home: NextPage<NextPageProps> = ({
                                          topRated,
                                          trendingNow
                                        }) => {
+  const {loading, user} = useAuth();
+  const showModal = useRecoilValue(modalState);
+  const movie = useRecoilValue(movieState);
+
+  if (loading) return null;
+
   return (
-    <div className="relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]">
+    <div
+      className={`relative h-screen bg-gradient-to-b
+                  from-gray-900/10 to-[#010511] lg:h-[140vh]
+                  ${showModal && '!h-screen overflow-hidden'}`}
+    >
       <Head>
         <title>Netflix</title>
         <meta name="description" content="Netflix web app by Nick Miriad"/>
@@ -48,7 +62,7 @@ const Home: NextPage<NextPageProps> = ({
           <Row title="Documentaries" movies={documentaries}/>
         </section>
 
-        {/*<Modal/>*/}
+        {showModal && <Modal/>}
       </main>
     </div>
   )
